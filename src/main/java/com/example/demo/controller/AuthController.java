@@ -3,7 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.LoginReqDTO;
 import com.example.demo.dto.LoginResDTO;
 import com.example.demo.model.Usuario;
-import com.example.demo.security.JwtService;
+import com.example.demo.service.JwtService;
 import com.example.demo.service.UsuarioService;
 import com.example.demo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;

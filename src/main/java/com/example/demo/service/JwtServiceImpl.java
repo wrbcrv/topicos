@@ -1,6 +1,8 @@
-package com.example.demo.security;
+package com.example.demo.service;
 
 import com.example.demo.model.Usuario;
+
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -25,5 +27,14 @@ public class JwtServiceImpl implements JwtService {
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(SECRET_KEY)
                 .compact();
+    }
+
+    @Override
+    public Claims validate(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(SECRET_KEY)
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
     }
 }
