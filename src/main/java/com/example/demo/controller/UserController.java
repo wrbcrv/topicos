@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.TarefaResDTO;
 import com.example.demo.dto.UsuarioReqDTO;
 import com.example.demo.dto.UsuarioResDTO;
 import com.example.demo.service.UsuarioService;
@@ -65,6 +66,16 @@ public class UserController {
         try {
             userService.delete(id);
             return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/{id}/tarefas")
+    public ResponseEntity<?> getTarefasByUsuarioId(@PathVariable Long id) {
+        try {
+            List<TarefaResDTO> tarefas = userService.getTarefasByUsuarioId(id);
+            return ResponseEntity.ok(tarefas);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body(e.getMessage());
         }

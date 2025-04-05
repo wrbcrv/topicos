@@ -1,7 +1,9 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.TarefaResDTO;
 import com.example.demo.dto.UsuarioReqDTO;
 import com.example.demo.dto.UsuarioResDTO;
+import com.example.demo.model.Tarefa;
 import com.example.demo.model.Usuario;
 import com.example.demo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,5 +79,17 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
 
         return UsuarioResDTO.valueOf(usuario);
+    }
+
+    @Override
+    public List<TarefaResDTO> getTarefasByUsuarioId(Long usuarioId) {
+        Usuario usuario = repository.findById(usuarioId)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
+        List<Tarefa> tarefas = usuario.getTarefas();
+
+        return tarefas.stream()
+                .map(TarefaResDTO::valueOf)
+                .collect(Collectors.toList());
     }
 }

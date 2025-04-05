@@ -1,5 +1,6 @@
 package com.example.demo.service;
 
+import com.example.demo.dto.TarefaResDTO;
 import com.example.demo.dto.UsuarioReqDTO;
 import com.example.demo.dto.UsuarioResDTO;
 
@@ -13,4 +14,5 @@ public interface UsuarioService {
     UsuarioResDTO update(Long id, UsuarioReqDTO dto);
     void delete(Long id);
     UsuarioResDTO findByEmail(String email, String senha);
+    List<TarefaResDTO> getTarefasByUsuarioId(Long usuarioId);
 }
