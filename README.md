@@ -6,9 +6,12 @@
 
 **Professor:** Alysson
 
-**Equipe:** Werbton, Victor e Guilherme
+**Equipe:** Guilherme Pereira, Victor Alves e Werbton Carvalho
 
 ---
+## 📝 Introdução
+
+Este é um projeto criado para a disciplina de Tópicos Especiais em Programação do curso Bacharelado de Sistemas de Informação da Universidade Estadual do Tocnantins - UNITINS.
 
 ## 📝 Descrição do Projeto
 
